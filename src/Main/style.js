@@ -29,9 +29,29 @@ export const Wrapper = styled.div`
 
 export const Message = styled.div`
   flex: 4;
-  background: red;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 4px;
+    background: #fff;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 5px;
+  }
+`;
+
+export const MessageFrom = styled.div`
+  display: flex;
+  gap: 10px;
+  background: rgba(28, 30, 58, 1);
+  padding: 20px;
   border-radius: 8px;
 `;
+
 export const MainBottom = styled.div`
   flex: 1;
 `;
@@ -62,11 +82,12 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 export const Img = styled.img`
-  width: 100%;
-  height: 100%;
+  width: ${({ user }) => (user ? "40px" : "100%")};
+  height: ${({ user }) => (user ? "40px" : "100%")};
+  border-radius: ${({ user }) => user && "10px"};
 `;
 export const Text = styled.div`
-  text-align: center;
-  margin-top: 20px;
-  font-size: 1.2rem;
+  text-align: ${({ txt }) => txt && "center"};
+  margin: ${({ txt }) => txt && "20px 0 10px"};
+  font-size: ${({ user }) => (user ? "1.5rem" : "1.2rem")};
 `;
