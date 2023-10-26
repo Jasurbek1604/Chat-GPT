@@ -20,16 +20,16 @@ const Sidebar = ({ value }) => {
   const [isOpen] = value;
   return (
     <Container isOpen={isOpen}>
-      <SideBarTop>
+      <SideBarTop isOpen={isOpen}>
         <Logos>
           <Logo src={logo} logo="true" alt="logo" />
           <Span isOpen={isOpen} title="true">
             ChatGPT
           </Span>
         </Logos>
-        <Button add="true">
-          <Logo src={add} alt="add" />
-          <Span isOpen={isOpen} add="true">
+        <Button New="true">
+          <Logo src={add} alt="New" />
+          <Span isOpen={isOpen} New="true">
             New Chat
           </Span>
         </Button>
@@ -42,16 +42,16 @@ const Sidebar = ({ value }) => {
           <Span isOpen={isOpen}>How to use API?</Span>
         </Button>
       </SideBarTop>
-      <SideBarBottom>
-        <Button link="true">
+      <SideBarBottom isOpen={isOpen}>
+        <Button link="true" isOpen={!isOpen ? "New" : false}>
           <Logo src={home} alt="home" />
           <Span isOpen={isOpen}>Home</Span>
         </Button>
-        <Button link="true">
+        <Button link="true" isOpen={!isOpen ? "New" : false}>
           <Logo src={saved} alt="home" />
           <Span isOpen={isOpen}>Saved</Span>
         </Button>
-        <Button link="true">
+        <Button link="true" isOpen={!isOpen ? "New" : false}>
           <Logo src={upg} alt="home" />
           <Span isOpen={isOpen}>Upgrade to pro</Span>
         </Button>
