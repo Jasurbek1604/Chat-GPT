@@ -5,7 +5,8 @@ import message from "../assets/message.svg";
 import home from "../assets/home.svg";
 import saved from "../assets/bookmark.svg";
 import upg from "../assets/rocket.svg";
-
+import bars from "../assets/bars.svg";
+import x from "../assets/x-solid.svg";
 import {
   Container,
   SideBarTop,
@@ -15,6 +16,8 @@ import {
   Span,
   Logos,
 } from "./style";
+
+import { Menu, Bar } from "../Main/style";
 
 const Sidebar = ({ value }) => {
   const [isOpen, setIsOpen] = value;
@@ -26,6 +29,11 @@ const Sidebar = ({ value }) => {
           <Span isOpen={isOpen} title="true">
             ChatGPT
           </Span>
+          {window.innerWidth < 600 && (
+            <Menu onClick={() => setIsOpen(!isOpen)}>
+              <Bar src={isOpen ? x : bars} alt="" isOpen={isOpen} />
+            </Menu>
+          )}
         </Logos>
         <Button New="true" onClick={() => setIsOpen(false)}>
           <Logo src={add} alt="New" />
