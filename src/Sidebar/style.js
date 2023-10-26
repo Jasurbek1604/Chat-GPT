@@ -15,10 +15,16 @@ export const SideBarTop = styled.div`
   flex: 2;
   border-bottom: 1px solid rgb(100, 100, 100);
   padding: ${({ isOpen }) => (isOpen ? "20px" : "10px ")};
+  @media (max-width: 600px) {
+    padding: 5px;
+  }
 `;
 export const SideBarBottom = styled.div`
   flex: 1;
   padding: ${({ isOpen }) => (isOpen ? "20px" : "")};
+  @media (max-width: 600px) {
+    padding: 5px;
+  }
 `;
 export const Button = styled.div`
   display: flex;

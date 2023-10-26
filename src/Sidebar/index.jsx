@@ -17,41 +17,53 @@ import {
 } from "./style";
 
 const Sidebar = ({ value }) => {
-  const [isOpen] = value;
+  const [isOpen, setIsOpen] = value;
   return (
     <Container isOpen={isOpen}>
       <SideBarTop isOpen={isOpen}>
-        <Logos>
+        <Logos onClick={() => setIsOpen(!isOpen)}>
           <Logo src={logo} logo="true" alt="logo" />
           <Span isOpen={isOpen} title="true">
             ChatGPT
           </Span>
         </Logos>
-        <Button New="true">
+        <Button New="true" onClick={() => setIsOpen(!isOpen)}>
           <Logo src={add} alt="New" />
           <Span isOpen={isOpen} New="true">
             New Chat
           </Span>
         </Button>
-        <Button msg="true">
+        <Button msg="true" onClick={() => setIsOpen(!isOpen)}>
           <Logo src={message} alt="" />
           <Span isOpen={isOpen}>What is Programming?</Span>
         </Button>
-        <Button msg="true">
+        <Button msg="true" onClick={() => setIsOpen(!isOpen)}>
           <Logo src={message} alt="" />
           <Span isOpen={isOpen}>How to use API?</Span>
         </Button>
       </SideBarTop>
       <SideBarBottom isOpen={isOpen}>
-        <Button link="true" isOpen={!isOpen ? "New" : false}>
+        <Button
+          link="true"
+          onClick={() => setIsOpen(!isOpen)}
+          isOpen={!isOpen ? "New" : false}
+        >
           <Logo src={home} alt="home" />
           <Span isOpen={isOpen}>Home</Span>
         </Button>
-        <Button link="true" isOpen={!isOpen ? "New" : false}>
+        <Button
+          link="true"
+          onClick={() => setIsOpen(!isOpen)}
+          isOpen={!isOpen ? "New" : false}
+        >
           <Logo src={saved} alt="home" />
           <Span isOpen={isOpen}>Saved</Span>
         </Button>
-        <Button link="true" isOpen={!isOpen ? "New" : false}>
+        <Button
+          link="true"
+          onClick={() => setIsOpen(!isOpen)}
+          isOpen={!isOpen ? "New" : false}
+        >
           <Logo src={upg} alt="home" />
           <Span isOpen={isOpen}>Upgrade to pro</Span>
         </Button>
