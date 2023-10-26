@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
+import Sidebar from "./Sidebar";
+import Main from "./Main";
+import styled from "styled-components";
+
+const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+`;
 
 const App = () => {
-  return <div>Chat GPT</div>;
+  const [isOpen, setIsOpen] = useState(true);
+  return (
+    <Container>
+      <Sidebar value={[isOpen, setIsOpen]} />
+      <Main value={[isOpen, setIsOpen]} />
+    </Container>
+  );
 };
 
 export default App;
