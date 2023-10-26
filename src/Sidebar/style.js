@@ -6,7 +6,10 @@ export const Container = styled.div`
   border-right: 1px solid rgb(100, 100, 100);
   display: flex;
   flex-direction: column;
-  /* overflow: hidden; */
+  @media (max-width: 600px) {
+    overflow: auto;
+    flex: ${({ isOpen }) => (isOpen ? "10" : "0")};
+  }
 `;
 export const SideBarTop = styled.div`
   flex: 2;
