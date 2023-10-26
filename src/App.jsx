@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 
 const App = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Container>
       <Sidebar value={[isOpen, setIsOpen]} />
