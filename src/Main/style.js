@@ -42,12 +42,14 @@ export const Message = styled.div`
     background: gray;
     border-radius: 5px;
   }
+  &::-webkit-scrollbar-track {
+  }
 `;
 
 export const MessageFrom = styled.div`
   display: flex;
   gap: 10px;
-  background: rgba(28, 30, 58, 1);
+  background: ${({ gpt }) => (gpt ? "rgba(28, 30, 58, 1)" : "")};
   padding: 20px;
   border-radius: 8px;
 `;
