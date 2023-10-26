@@ -4,7 +4,7 @@ import Main from "./Main";
 import styled from "styled-components";
 
 const Container = styled.div`
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
 `;
 
