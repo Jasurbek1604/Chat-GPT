@@ -21,23 +21,23 @@ const Sidebar = ({ value }) => {
   return (
     <Container isOpen={isOpen}>
       <SideBarTop isOpen={isOpen}>
-        <Logos onClick={() => setIsOpen(!isOpen)}>
+        <Logos onClick={() => setIsOpen(false)}>
           <Logo src={logo} logo="true" alt="logo" />
           <Span isOpen={isOpen} title="true">
             ChatGPT
           </Span>
         </Logos>
-        <Button New="true" onClick={() => setIsOpen(!isOpen)}>
+        <Button New="true" onClick={() => setIsOpen(false)}>
           <Logo src={add} alt="New" />
           <Span isOpen={isOpen} New="true">
             New Chat
           </Span>
         </Button>
-        <Button msg="true" onClick={() => setIsOpen(!isOpen)}>
+        <Button msg="true" onClick={() => setIsOpen(false)}>
           <Logo src={message} alt="" />
           <Span isOpen={isOpen}>What is Programming?</Span>
         </Button>
-        <Button msg="true" onClick={() => setIsOpen(!isOpen)}>
+        <Button msg="true" onClick={() => setIsOpen(false)}>
           <Logo src={message} alt="" />
           <Span isOpen={isOpen}>How to use API?</Span>
         </Button>
@@ -45,7 +45,7 @@ const Sidebar = ({ value }) => {
       <SideBarBottom isOpen={isOpen}>
         <Button
           link="true"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(false)}
           isOpen={!isOpen ? "New" : false}
         >
           <Logo src={home} alt="home" />
@@ -53,7 +53,7 @@ const Sidebar = ({ value }) => {
         </Button>
         <Button
           link="true"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(false)}
           isOpen={!isOpen ? "New" : false}
         >
           <Logo src={saved} alt="home" />

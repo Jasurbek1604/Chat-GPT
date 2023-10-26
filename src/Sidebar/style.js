@@ -54,4 +54,5 @@ export const Logos = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
 `;
