@@ -14,6 +14,7 @@ const App = () => {
     <Container>
       <Sidebar value={[isOpen, setIsOpen]} />
       <Main value={[isOpen, setIsOpen]} />
+      <h1>jasurbek</h1>
     </Container>
   );
 };
