@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import Sidebar from "./Sidebar";
-import Main from "./Main";
+import Main from "./Body";
 import styled from "styled-components";
 
 const Container = styled.div`

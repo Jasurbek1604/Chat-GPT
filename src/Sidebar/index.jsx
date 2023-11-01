@@ -17,7 +17,7 @@ import {
   Logos,
 } from "./style";
 
-import { Menu, Bar } from "../Main/style";
+import { Menu, Bar } from "../Body/style";
 
 const Sidebar = ({ value }) => {
   const [isOpen, setIsOpen] = value;
