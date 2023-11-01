@@ -10,10 +10,11 @@ const Container = styled.div`
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [newChat, setNewChat] = useState(false);
   return (
     <Container>
-      <Sidebar value={[isOpen, setIsOpen]} />
-      <Main value={[isOpen, setIsOpen]} />
+      <Sidebar value={([isOpen, setIsOpen], [newChat, setNewChat])} />
+      <Main value={([isOpen, setIsOpen], [newChat, setNewChat])} />
     </Container>
   );
 };

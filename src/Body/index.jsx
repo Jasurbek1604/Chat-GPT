@@ -21,6 +21,7 @@ import chat from "../assets/chatgptLogo.svg";
 
 const Main = ({ value }) => {
   const [isOpen, setIsOpen] = value;
+  const [newChat, setNewChat] = value;
 
   const inputRef = useRef();
   const [request, setRequest] = useState([]);
@@ -28,7 +29,7 @@ const Main = ({ value }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     setRequest([inputRef?.current?.value, ...request]);
-    input.value = ""; 
+    input.value = "";
   };
 
   return (
@@ -38,7 +39,7 @@ const Main = ({ value }) => {
       </Menu>
       <Wrapper>
         <Message>
-          {request.length !== 0 &&
+          {request.length ? (
             request.map((e) => (
               <>
                 <MessageFrom>
@@ -52,7 +53,19 @@ const Main = ({ value }) => {
                   </Text>
                 </MessageFrom>
               </>
-            ))}
+            ))
+          ) : (
+            <h1
+              style={{
+                display: "flex",
+                textAlign: "center",
+                justifyContent: "center",
+                fontSize: "50px",
+              }}
+            >
+              ChatGPT
+            </h1>
+          )}
         </Message>
         <MainBottom>
           <Form onSubmit={(e) => onSubmit(e)}>

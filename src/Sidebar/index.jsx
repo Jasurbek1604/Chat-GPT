@@ -21,6 +21,11 @@ import { Menu, Bar } from "../Body/style";
 
 const Sidebar = ({ value }) => {
   const [isOpen, setIsOpen] = value;
+  const [newChat, setNewChat] = value;
+  const NewChat = () => {
+    setIsOpen(false);
+    // setNewChat(true);
+  };
   return (
     <Container isOpen={isOpen}>
       <SideBarTop isOpen={isOpen}>
@@ -35,7 +40,7 @@ const Sidebar = ({ value }) => {
             </Menu>
           )}
         </Logos>
-        <Button New="true" onClick={() => setIsOpen(false)}>
+        <Button New="true" onClick={NewChat}>
           <Logo src={add} alt="New" />
           <Span isOpen={isOpen} New="true">
             New Chat
