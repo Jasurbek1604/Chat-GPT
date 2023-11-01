@@ -28,6 +28,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Message = styled.div`
+  transition: 0.5s;
   flex: 4;
   display: flex;
   flex-direction: column;
@@ -58,7 +59,7 @@ export const MainBottom = styled.div`
   flex: 1;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
   width: 100%;
   display: flex;
   align-items: center;
@@ -92,4 +93,5 @@ export const Text = styled.div`
   text-align: ${({ txt }) => txt && "center"};
   margin: ${({ txt }) => txt && "20px 0 10px"};
   font-size: ${({ user }) => (user ? "1.5rem" : "1.2rem")};
+  color:${({red}) => red && "red"}
 `;

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useRef, useState } from "react";
 import {
   Container,
   Wrapper,
@@ -21,6 +21,18 @@ import chat from "../assets/chatgptLogo.svg";
 
 const Main = ({ value }) => {
   const [isOpen, setIsOpen] = value;
+
+  const inputRef = useRef();
+  const [request, setRequest] = useState([]);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setRequest([inputRef?.current?.value, ...request]);
+    // inputRef?.current?.value = null;
+  };
+
+  console.log(request);
+
   return (
     <Container isOpen={isOpen}>
       <Menu onClick={() => setIsOpen(!isOpen)}>
@@ -28,38 +40,25 @@ const Main = ({ value }) => {
       </Menu>
       <Wrapper>
         <Message>
-          <MessageFrom>
-            <Img src={jasco} user="true" />
-            <Text user="true">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni
-              deserunt ullam soluta rem dignissimos aliquid ab laborum veritatis
-              adipisci culpa?
-            </Text>
-          </MessageFrom>
-          <MessageFrom gpt="true">
-            <Img src={chat} user="true" />
-            <Text user="true">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-              consequatur numquam consequuntur, magnam distinctio ipsa, aliquid
-              ipsum quidem, commodi cupiditate molestiae sunt impedit nisi
-              reiciendis accusamus necessitatibus porro. Eligendi perferendis
-              ipsum tempora minima? Corporis modi quasi amet, temporibus porro,
-              doloremque omnis maiores quia delectus unde repellat optio
-              expedita voluptatum nobis voluptates est blanditiis neque dolorum,
-              mollitia reprehenderit ex. Quisquam ipsam eveniet vel? Labore,
-              nulla! Voluptatem harum ex facilis eaque ratione possimus culpa
-              magnam nulla, adipisci, consectetur ipsum? Nulla minima labore
-              nihil, velit voluptatibus odio amet magni itaque, molestias, id
-              eum quia earum. Nisi maiores tempore unde explicabo, magni
-              voluptate neque ipsam inventore aspernatur dolorem eligendi in
-              architecto animi cupiditate harum quis, nam corporis esse eaque
-              repudiandae impedit incidunt omnis a fuga. t
-            </Text>
-          </MessageFrom>
+          {request.length !== 0 &&
+            request.map((e) => (
+              <>
+                <MessageFrom>
+                  <Img src={jasco} user="true" />
+                  <Text user="true">{e}</Text>
+                </MessageFrom>
+                <MessageFrom gpt="true">
+                  <Img src={chat} user="true" />
+                  <Text user="true" red="true">
+                    Oooops!! ChatGPT is not working in your country!
+                  </Text>
+                </MessageFrom>
+              </>
+            ))}
         </Message>
         <MainBottom>
-          <Form>
-            <Input type="text" placeholder="Send a message" />
+          <Form onSubmit={(e) => onSubmit(e)}>
+            <Input type="text" ref={inputRef} placeholder="Send a message" />
             <Button>
               <Img src={send} alt="sent button" />
             </Button>
