@@ -22,7 +22,7 @@ import chat from "../assets/chatgptLogo.svg";
 const Main = ({ value }) => {
   const [isOpen, setIsOpen] = value;
   const [newChat, setNewChat] = value;
-
+  console.log(newChat);
   const inputRef = useRef();
   const [request, setRequest] = useState([]);
 

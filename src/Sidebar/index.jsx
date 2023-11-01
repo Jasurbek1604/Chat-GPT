@@ -22,9 +22,10 @@ import { Menu, Bar } from "../Body/style";
 const Sidebar = ({ value }) => {
   const [isOpen, setIsOpen] = value;
   const [newChat, setNewChat] = value;
+  console.log(newChat, setNewChat);
   const NewChat = () => {
     setIsOpen(false);
-    // setNewChat(true);
+    setNewChat(true);
   };
   return (
     <Container isOpen={isOpen}>
