@@ -28,10 +28,8 @@ const Main = ({ value }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     setRequest([inputRef?.current?.value, ...request]);
-    // inputRef?.current?.value = null;
+    input.value = ""; 
   };
-
-  console.log(request);
 
   return (
     <Container isOpen={isOpen}>
@@ -58,8 +56,14 @@ const Main = ({ value }) => {
         </Message>
         <MainBottom>
           <Form onSubmit={(e) => onSubmit(e)}>
-            <Input type="text" ref={inputRef} placeholder="Send a message" />
-            <Button>
+            <Input
+              type="text"
+              ref={inputRef}
+              placeholder="Send a message"
+              defaultValue={""}
+              id="input"
+            />
+            <Button onClick={(e) => onSubmit(e)}>
               <Img src={send} alt="sent button" />
             </Button>
           </Form>
